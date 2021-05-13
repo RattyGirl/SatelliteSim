@@ -1,0 +1,1 @@
+-IF:/Programming/Cpp/SatelliteSimulator/libs/glad/include -IF:/Programming/Cpp/SatelliteSimulator/libs/glfw-3.3.4/include -IF:/Programming/Cpp/SatelliteSimulator/libs/glfw-3.3.4/src -IF:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/libs/glfw-3.3.4/src 

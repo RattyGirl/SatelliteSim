@@ -1,0 +1,13 @@
+#ifndef SATELLITESIMULATOR_SHADERPROGRAM_H
+#define SATELLITESIMULATOR_SHADERPROGRAM_H
+
+
+class ShaderProgram {
+private:
+
+public:
+
+};
+
+
+#endif //SATELLITESIMULATOR_SHADERPROGRAM_H
