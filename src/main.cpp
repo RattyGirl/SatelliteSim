@@ -1,8 +1,9 @@
 #include "gfx/Window.h"
 #include "gfx/Shader.h"
-#include "gfx/Camera.h"
 #include "gfx/Model.h"
 #include "util/Image.h"
+#include "../glfw/deps/glad/gl.h"
+#include "gfx/Camera2D.h"
 
 // settings
 const unsigned int SCR_WIDTH = 1280;
@@ -44,8 +45,9 @@ int main()
 
     Image img("assets/textures/uvtemplate.bmp", IMGTYPE::BMP);
     Image img2("assets/textures/test3colour.bmp", IMGTYPE::BMP);
+    img.loadImage();
 
-    Camera camera(SCR_WIDTH, SCR_HEIGHT);
+    Camera2D camera(SCR_WIDTH, SCR_HEIGHT);
 
     double lastTime = glfwGetTime();
 
@@ -55,16 +57,10 @@ int main()
         float deltaTime = float(currentTime - lastTime);
         lastTime = currentTime;
 
-        if (glfwGetKey(window.getWindowID(), GLFW_KEY_S ) == GLFW_PRESS){
-//            camera.translateCamera(glm::vec3(0, 0.01 * deltaTime, 0));
-            camera.rotateCamera(0.0f, -1.0f * deltaTime);
+        if(glfwGetKey(window.getWindowID(), GLFW_KEY_SPACE)) {
+//            camera.screenToWorld(window.getWindowID());
         }
-        if(glfwGetKey(window.getWindowID(), GLFW_KEY_SPACE) == GLFW_PRESS) {
-//            camera.translateCamera(glm::vec3(0, 0.01 * deltaTime, 0));
-            img.loadImage();
-        } else {
-            img2.loadImage();
-        }
+
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -77,10 +73,6 @@ int main()
             std::cerr << error << std::endl;
             break;
         }
-
-        // Send our transformation to the currently bound shader, in the "MVP" uniform
-        // This is done in the main loop since each model will have a different MVP matrix (At least for the M part)
-        camera.loadMVP(MatrixID, glm::mat4(1.0f));
 
         glBindVertexArray(vao);
         model.drawModel();
