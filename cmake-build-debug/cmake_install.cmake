@@ -33,8 +33,10 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/libs/glfw-3.3.4/cmake_install.cmake")
+  # Include the install script for each subdirectory.
+  include("F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/cmake_install.cmake")
+  include("F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm/cmake_install.cmake")
+
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

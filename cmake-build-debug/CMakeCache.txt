@@ -213,7 +213,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=SatelliteSimulator
+CMAKE_PROJECT_NAME:STATIC=SatelliteSim
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=3.3.4
@@ -311,7 +311,7 @@ CMAKE_STRIP:FILEPATH=E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-GLFW_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/libs/glfw-3.3.4
+GLFW_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw
 
 //Build the GLFW documentation
 GLFW_BUILD_DOCS:BOOL=OFF
@@ -326,7 +326,7 @@ GLFW_BUILD_TESTS:BOOL=OFF
 GLFW_INSTALL:BOOL=ON
 
 //Value Computed by CMake
-GLFW_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/libs/glfw-3.3.4
+GLFW_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/glfw
 
 //Force use of high-performance GPU on hybrid systems
 GLFW_USE_HYBRID_HPG:BOOL=OFF
@@ -341,6 +341,12 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 OPENGL_glu_LIBRARY:STRING=glu32
 
 //Value Computed by CMake
+SatelliteSim_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug
+
+//Value Computed by CMake
+SatelliteSim_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator
+
+//Value Computed by CMake
 SatelliteSimulator_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug
 
 //Value Computed by CMake
@@ -348,6 +354,12 @@ SatelliteSimulator_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=glfw3_DIR-NOTFOUND
+
+//Value Computed by CMake
+glm_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm
+
+//Value Computed by CMake
+glm_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/glm
 
 
 ########################
@@ -498,7 +510,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

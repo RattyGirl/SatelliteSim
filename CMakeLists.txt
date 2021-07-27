@@ -1,25 +1,25 @@
-cmake_minimum_required(VERSION 3.17)
-project(SatelliteSimulator)
+cmake_minimum_required(VERSION 3.3)
+project(SatelliteSim)
 
-set(CMAKE_CXX_STANDARD 20)
+find_package(OpenGL REQUIRED)
 
-set(SOURCE_FILES src/main.cpp src/Game.cpp libs/glad/src/gl.c src/utils/ShaderProgram.cpp)
-set(HEADER_FILES src/Game.h src/utils/ShaderProgram.h)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(dir ${CMAKE_CURRENT_SOURCE_DIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${dir}/build)
+# Including GLFW
+add_subdirectory(glfw)
+include_directories(glfw/include)
 
-#dep
-include_directories(libs/glad/include)
+# Including GLAD
+include_directories(glad/include)
 
-file(COPY resources DESTINATION ${dir}/build)
-file(COPY shaders DESTINATION ${dir}/build)
+#add glm
+add_subdirectory(glm)
+include_directories(glm)
 
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory(libs/glfw-3.3.4)
+file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/gfx/*.cpp glad/src/glad.c)
 
-add_executable(SatelliteSimulator ${SOURCE_FILES} ${HEADER_FILES})
+add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 
-target_link_libraries(SatelliteSimulator glfw)
+# Linking GLFW and OGL
+target_link_libraries(${CMAKE_PROJECT_NAME} glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARY} glm::glm)
+file(COPY ${PROJECT_SOURCE_DIR}/assets DESTINATION ${PROJECT_BUILD_DIR}/)

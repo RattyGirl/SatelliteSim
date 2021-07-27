@@ -22,7 +22,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CMakeRCInformation.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
-  "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CheckCCompilerFlag.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CheckIncludeFile.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/CheckLibraryExists.cmake"
@@ -30,6 +29,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+  "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/FindOpenGL.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/FindPackageMessage.cmake"
   "D:/Program Files/JetBrains/CLion 2020.3.2/bin/cmake/win/share/cmake-3.17/Modules/FindThreads.cmake"
@@ -50,12 +50,14 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.17.5/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.17.5/CMakeRCCompiler.cmake"
   "CMakeFiles/3.17.5/CMakeSystem.cmake"
-  "../libs/glfw-3.3.4/CMakeLists.txt"
-  "../libs/glfw-3.3.4/cmake_uninstall.cmake.in"
-  "../libs/glfw-3.3.4/src/CMakeLists.txt"
-  "../libs/glfw-3.3.4/src/glfw3.pc.in"
-  "../libs/glfw-3.3.4/src/glfw3Config.cmake.in"
-  "../libs/glfw-3.3.4/src/glfw_config.h.in"
+  "../glfw/CMake/cmake_uninstall.cmake.in"
+  "../glfw/CMake/glfw3.pc.in"
+  "../glfw/CMake/glfw3Config.cmake.in"
+  "../glfw/CMakeLists.txt"
+  "../glfw/src/CMakeLists.txt"
+  "../glfw/src/glfw_config.h.in"
+  "../glm/CMakeLists.txt"
+  "../glm/glm/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -67,13 +69,15 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "libs/glfw-3.3.4/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "libs/glfw-3.3.4/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glfw/src/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glm/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "glm/glm/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/SatelliteSimulator.dir/DependInfo.cmake"
-  "libs/glfw-3.3.4/CMakeFiles/uninstall.dir/DependInfo.cmake"
-  "libs/glfw-3.3.4/src/CMakeFiles/glfw.dir/DependInfo.cmake"
+  "CMakeFiles/SatelliteSim.dir/DependInfo.cmake"
+  "glfw/CMakeFiles/uninstall.dir/DependInfo.cmake"
+  "glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   )

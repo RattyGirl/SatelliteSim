@@ -75,6 +75,18 @@ CMAKE_BINARY_DIR = F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	"D:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -131,18 +143,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"D:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles\progress.marks
@@ -176,17 +176,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SatelliteSimulator
+# Target rules for targets named SatelliteSim
 
 # Build rule for target.
-SatelliteSimulator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SatelliteSimulator
-.PHONY : SatelliteSimulator
+SatelliteSim: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SatelliteSim
+.PHONY : SatelliteSim
 
 # fast build rule for target.
-SatelliteSimulator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/build
-.PHONY : SatelliteSimulator/fast
+SatelliteSim/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/build
+.PHONY : SatelliteSim/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -198,7 +198,7 @@ uninstall: cmake_check_build_system
 
 # fast build rule for target.
 uninstall/fast:
-	$(MAKE) $(MAKESILENT) -f libs\glfw-3.3.4\CMakeFiles\uninstall.dir\build.make libs/glfw-3.3.4/CMakeFiles/uninstall.dir/build
+	$(MAKE) $(MAKESILENT) -f glfw\CMakeFiles\uninstall.dir\build.make glfw/CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
 #=============================================================================
@@ -211,62 +211,170 @@ glfw: cmake_check_build_system
 
 # fast build rule for target.
 glfw/fast:
-	$(MAKE) $(MAKESILENT) -f libs\glfw-3.3.4\src\CMakeFiles\glfw.dir\build.make libs/glfw-3.3.4/src/CMakeFiles/glfw.dir/build
+	$(MAKE) $(MAKESILENT) -f glfw\src\CMakeFiles\glfw.dir\build.make glfw/src/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
 
-libs/glad/src/gl.obj: libs/glad/src/gl.c.obj
+glad/src/glad.obj: glad/src/glad.c.obj
 
-.PHONY : libs/glad/src/gl.obj
-
-# target to build an object file
-libs/glad/src/gl.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/libs/glad/src/gl.c.obj
-.PHONY : libs/glad/src/gl.c.obj
-
-libs/glad/src/gl.i: libs/glad/src/gl.c.i
-
-.PHONY : libs/glad/src/gl.i
-
-# target to preprocess a source file
-libs/glad/src/gl.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/libs/glad/src/gl.c.i
-.PHONY : libs/glad/src/gl.c.i
-
-libs/glad/src/gl.s: libs/glad/src/gl.c.s
-
-.PHONY : libs/glad/src/gl.s
-
-# target to generate assembly for a file
-libs/glad/src/gl.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/libs/glad/src/gl.c.s
-.PHONY : libs/glad/src/gl.c.s
-
-src/Game.obj: src/Game.cpp.obj
-
-.PHONY : src/Game.obj
+.PHONY : glad/src/glad.obj
 
 # target to build an object file
-src/Game.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/Game.cpp.obj
-.PHONY : src/Game.cpp.obj
+glad/src/glad.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/glad/src/glad.c.obj
+.PHONY : glad/src/glad.c.obj
 
-src/Game.i: src/Game.cpp.i
+glad/src/glad.i: glad/src/glad.c.i
 
-.PHONY : src/Game.i
+.PHONY : glad/src/glad.i
 
 # target to preprocess a source file
-src/Game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/Game.cpp.i
-.PHONY : src/Game.cpp.i
+glad/src/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/glad/src/glad.c.i
+.PHONY : glad/src/glad.c.i
 
-src/Game.s: src/Game.cpp.s
+glad/src/glad.s: glad/src/glad.c.s
 
-.PHONY : src/Game.s
+.PHONY : glad/src/glad.s
 
 # target to generate assembly for a file
-src/Game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/Game.cpp.s
-.PHONY : src/Game.cpp.s
+glad/src/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/glad/src/glad.c.s
+.PHONY : glad/src/glad.c.s
+
+src/SatelliteSim.obj: src/SatelliteSim.cpp.obj
+
+.PHONY : src/SatelliteSim.obj
+
+# target to build an object file
+src/SatelliteSim.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/SatelliteSim.cpp.obj
+.PHONY : src/SatelliteSim.cpp.obj
+
+src/SatelliteSim.i: src/SatelliteSim.cpp.i
+
+.PHONY : src/SatelliteSim.i
+
+# target to preprocess a source file
+src/SatelliteSim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/SatelliteSim.cpp.i
+.PHONY : src/SatelliteSim.cpp.i
+
+src/SatelliteSim.s: src/SatelliteSim.cpp.s
+
+.PHONY : src/SatelliteSim.s
+
+# target to generate assembly for a file
+src/SatelliteSim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/SatelliteSim.cpp.s
+.PHONY : src/SatelliteSim.cpp.s
+
+src/gfx/Camera2D.obj: src/gfx/Camera2D.cpp.obj
+
+.PHONY : src/gfx/Camera2D.obj
+
+# target to build an object file
+src/gfx/Camera2D.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Camera2D.cpp.obj
+.PHONY : src/gfx/Camera2D.cpp.obj
+
+src/gfx/Camera2D.i: src/gfx/Camera2D.cpp.i
+
+.PHONY : src/gfx/Camera2D.i
+
+# target to preprocess a source file
+src/gfx/Camera2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Camera2D.cpp.i
+.PHONY : src/gfx/Camera2D.cpp.i
+
+src/gfx/Camera2D.s: src/gfx/Camera2D.cpp.s
+
+.PHONY : src/gfx/Camera2D.s
+
+# target to generate assembly for a file
+src/gfx/Camera2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Camera2D.cpp.s
+.PHONY : src/gfx/Camera2D.cpp.s
+
+src/gfx/Model.obj: src/gfx/Model.cpp.obj
+
+.PHONY : src/gfx/Model.obj
+
+# target to build an object file
+src/gfx/Model.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Model.cpp.obj
+.PHONY : src/gfx/Model.cpp.obj
+
+src/gfx/Model.i: src/gfx/Model.cpp.i
+
+.PHONY : src/gfx/Model.i
+
+# target to preprocess a source file
+src/gfx/Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Model.cpp.i
+.PHONY : src/gfx/Model.cpp.i
+
+src/gfx/Model.s: src/gfx/Model.cpp.s
+
+.PHONY : src/gfx/Model.s
+
+# target to generate assembly for a file
+src/gfx/Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Model.cpp.s
+.PHONY : src/gfx/Model.cpp.s
+
+src/gfx/Shader.obj: src/gfx/Shader.cpp.obj
+
+.PHONY : src/gfx/Shader.obj
+
+# target to build an object file
+src/gfx/Shader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Shader.cpp.obj
+.PHONY : src/gfx/Shader.cpp.obj
+
+src/gfx/Shader.i: src/gfx/Shader.cpp.i
+
+.PHONY : src/gfx/Shader.i
+
+# target to preprocess a source file
+src/gfx/Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Shader.cpp.i
+.PHONY : src/gfx/Shader.cpp.i
+
+src/gfx/Shader.s: src/gfx/Shader.cpp.s
+
+.PHONY : src/gfx/Shader.s
+
+# target to generate assembly for a file
+src/gfx/Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Shader.cpp.s
+.PHONY : src/gfx/Shader.cpp.s
+
+src/gfx/Window.obj: src/gfx/Window.cpp.obj
+
+.PHONY : src/gfx/Window.obj
+
+# target to build an object file
+src/gfx/Window.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Window.cpp.obj
+.PHONY : src/gfx/Window.cpp.obj
+
+src/gfx/Window.i: src/gfx/Window.cpp.i
+
+.PHONY : src/gfx/Window.i
+
+# target to preprocess a source file
+src/gfx/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Window.cpp.i
+.PHONY : src/gfx/Window.cpp.i
+
+src/gfx/Window.s: src/gfx/Window.cpp.s
+
+.PHONY : src/gfx/Window.s
+
+# target to generate assembly for a file
+src/gfx/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/gfx/Window.cpp.s
+.PHONY : src/gfx/Window.cpp.s
 
 src/main.obj: src/main.cpp.obj
 
@@ -274,7 +382,7 @@ src/main.obj: src/main.cpp.obj
 
 # target to build an object file
 src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/main.cpp.obj
 .PHONY : src/main.cpp.obj
 
 src/main.i: src/main.cpp.i
@@ -283,7 +391,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -292,8 +400,35 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/util/Image.obj: src/util/Image.cpp.obj
+
+.PHONY : src/util/Image.obj
+
+# target to build an object file
+src/util/Image.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/util/Image.cpp.obj
+.PHONY : src/util/Image.cpp.obj
+
+src/util/Image.i: src/util/Image.cpp.i
+
+.PHONY : src/util/Image.i
+
+# target to preprocess a source file
+src/util/Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/util/Image.cpp.i
+.PHONY : src/util/Image.cpp.i
+
+src/util/Image.s: src/util/Image.cpp.s
+
+.PHONY : src/util/Image.s
+
+# target to generate assembly for a file
+src/util/Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/util/Image.cpp.s
+.PHONY : src/util/Image.cpp.s
 
 src/utils/ShaderProgram.obj: src/utils/ShaderProgram.cpp.obj
 
@@ -301,7 +436,7 @@ src/utils/ShaderProgram.obj: src/utils/ShaderProgram.cpp.obj
 
 # target to build an object file
 src/utils/ShaderProgram.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/utils/ShaderProgram.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.obj
 .PHONY : src/utils/ShaderProgram.cpp.obj
 
 src/utils/ShaderProgram.i: src/utils/ShaderProgram.cpp.i
@@ -310,7 +445,7 @@ src/utils/ShaderProgram.i: src/utils/ShaderProgram.cpp.i
 
 # target to preprocess a source file
 src/utils/ShaderProgram.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/utils/ShaderProgram.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.i
 .PHONY : src/utils/ShaderProgram.cpp.i
 
 src/utils/ShaderProgram.s: src/utils/ShaderProgram.cpp.s
@@ -319,7 +454,7 @@ src/utils/ShaderProgram.s: src/utils/ShaderProgram.cpp.s
 
 # target to generate assembly for a file
 src/utils/ShaderProgram.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSimulator.dir\build.make CMakeFiles/SatelliteSimulator.dir/src/utils/ShaderProgram.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.s
 .PHONY : src/utils/ShaderProgram.cpp.s
 
 # Help Target
@@ -335,17 +470,32 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... uninstall
-	@echo ... SatelliteSimulator
+	@echo ... SatelliteSim
 	@echo ... glfw
-	@echo ... libs/glad/src/gl.obj
-	@echo ... libs/glad/src/gl.i
-	@echo ... libs/glad/src/gl.s
-	@echo ... src/Game.obj
-	@echo ... src/Game.i
-	@echo ... src/Game.s
+	@echo ... glad/src/glad.obj
+	@echo ... glad/src/glad.i
+	@echo ... glad/src/glad.s
+	@echo ... src/SatelliteSim.obj
+	@echo ... src/SatelliteSim.i
+	@echo ... src/SatelliteSim.s
+	@echo ... src/gfx/Camera2D.obj
+	@echo ... src/gfx/Camera2D.i
+	@echo ... src/gfx/Camera2D.s
+	@echo ... src/gfx/Model.obj
+	@echo ... src/gfx/Model.i
+	@echo ... src/gfx/Model.s
+	@echo ... src/gfx/Shader.obj
+	@echo ... src/gfx/Shader.i
+	@echo ... src/gfx/Shader.s
+	@echo ... src/gfx/Window.obj
+	@echo ... src/gfx/Window.i
+	@echo ... src/gfx/Window.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/util/Image.obj
+	@echo ... src/util/Image.i
+	@echo ... src/util/Image.s
 	@echo ... src/utils/ShaderProgram.obj
 	@echo ... src/utils/ShaderProgram.i
 	@echo ... src/utils/ShaderProgram.s
