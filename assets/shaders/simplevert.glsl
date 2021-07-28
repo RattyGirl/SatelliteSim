@@ -3,7 +3,7 @@
 layout(location = 0) in vec3 vertexPosition_modelspace;
 layout(location = 1) in vec2 vertexUV;
 
-uniform mat4 MVP;
+uniform mat4 MaVP;
 
 out vec2 uv;
 

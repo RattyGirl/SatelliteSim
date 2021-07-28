@@ -214,6 +214,19 @@ glfw/fast:
 	$(MAKE) $(MAKESILENT) -f glfw\src\CMakeFiles\glfw.dir\build.make glfw/src/CMakeFiles/glfw.dir/build
 .PHONY : glfw/fast
 
+#=============================================================================
+# Target rules for targets named docs
+
+# Build rule for target.
+docs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 docs
+.PHONY : docs
+
+# fast build rule for target.
+docs/fast:
+	$(MAKE) $(MAKESILENT) -f glfw\docs\CMakeFiles\docs.dir\build.make glfw/docs/CMakeFiles/docs.dir/build
+.PHONY : docs/fast
+
 glad/src/glad.obj: glad/src/glad.c.obj
 
 .PHONY : glad/src/glad.obj
@@ -430,33 +443,6 @@ src/util/Image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/util/Image.cpp.s
 .PHONY : src/util/Image.cpp.s
 
-src/utils/ShaderProgram.obj: src/utils/ShaderProgram.cpp.obj
-
-.PHONY : src/utils/ShaderProgram.obj
-
-# target to build an object file
-src/utils/ShaderProgram.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.obj
-.PHONY : src/utils/ShaderProgram.cpp.obj
-
-src/utils/ShaderProgram.i: src/utils/ShaderProgram.cpp.i
-
-.PHONY : src/utils/ShaderProgram.i
-
-# target to preprocess a source file
-src/utils/ShaderProgram.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.i
-.PHONY : src/utils/ShaderProgram.cpp.i
-
-src/utils/ShaderProgram.s: src/utils/ShaderProgram.cpp.s
-
-.PHONY : src/utils/ShaderProgram.s
-
-# target to generate assembly for a file
-src/utils/ShaderProgram.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/src/utils/ShaderProgram.cpp.s
-.PHONY : src/utils/ShaderProgram.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -469,6 +455,7 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
+	@echo ... docs
 	@echo ... uninstall
 	@echo ... SatelliteSim
 	@echo ... glfw
@@ -496,9 +483,6 @@ help:
 	@echo ... src/util/Image.obj
 	@echo ... src/util/Image.i
 	@echo ... src/util/Image.s
-	@echo ... src/utils/ShaderProgram.obj
-	@echo ... src/utils/ShaderProgram.i
-	@echo ... src/utils/ShaderProgram.s
 .PHONY : help
 
 

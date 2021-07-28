@@ -157,7 +157,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/SatelliteSimulator
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/SatelliteSim
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -216,16 +216,16 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_NAME:STATIC=SatelliteSim
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=3.3.4
+CMAKE_PROJECT_VERSION:STATIC=3.4.0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_MAJOR:STATIC=3
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=3
+CMAKE_PROJECT_VERSION_MINOR:STATIC=4
 
 //Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=4
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION_TWEAK:STATIC=
@@ -310,11 +310,14 @@ CMAKE_STRIP:FILEPATH=E:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Doxygen documentation generation tool (http://www.doxygen.org)
+DOXYGEN_EXECUTABLE:FILEPATH=D:/Program Files/doxygen/bin/doxygen.exe
+
 //Value Computed by CMake
 GLFW_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw
 
 //Build the GLFW documentation
-GLFW_BUILD_DOCS:BOOL=OFF
+GLFW_BUILD_DOCS:BOOL=ON
 
 //Build the GLFW example programs
 GLFW_BUILD_EXAMPLES:BOOL=OFF
@@ -345,15 +348,6 @@ SatelliteSim_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build
 
 //Value Computed by CMake
 SatelliteSim_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator
-
-//Value Computed by CMake
-SatelliteSimulator_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug
-
-//Value Computed by CMake
-SatelliteSimulator_SOURCE_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator
-
-//The directory containing a CMake configuration file for glfw3.
-glfw3_DIR:PATH=glfw3_DIR-NOTFOUND
 
 //Value Computed by CMake
 glm_BINARY_DIR:STATIC=F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm
@@ -510,7 +504,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -566,6 +560,10 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Have include dinput.h
 DINPUT_H_FOUND:INTERNAL=1
+//ADVANCED property for variable: DOXYGEN_EXECUTABLE
+DOXYGEN_EXECUTABLE-ADVANCED:INTERNAL=1
+//Details about finding Doxygen
+FIND_PACKAGE_MESSAGE_DETAILS_Doxygen:INTERNAL=[D:/Program Files/doxygen/bin/doxygen.exe][cfound components: doxygen ][v1.8.18 (a1b07ad0e92e4526c9ba1711d39f06b58c2a7459)()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][c ][v()]
 //Details about finding Threads
@@ -576,12 +574,6 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //Have include xinput.h
 XINPUT_H_FOUND:INTERNAL=1
-//Test _GLFW_HAS_64ASLR
-_GLFW_HAS_64ASLR:INTERNAL=1
-//Test _GLFW_HAS_ASLR
-_GLFW_HAS_ASLR:INTERNAL=1
-//Test _GLFW_HAS_DEP
-_GLFW_HAS_DEP:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/SatelliteSimulator
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/SatelliteSim
 

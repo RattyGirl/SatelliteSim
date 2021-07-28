@@ -2,7 +2,6 @@
 #include "gfx/Shader.h"
 #include "gfx/Model.h"
 #include "util/Image.h"
-#include "../glfw/deps/glad/gl.h"
 #include "gfx/Camera2D.h"
 
 // settings
@@ -32,6 +31,7 @@ int main()
     // Only during the initialisation
     GLuint MatrixID = simpleShader.getUniformLocation("MVP");
 
+
     Model model("assets/models/cube.obj");
 
 
@@ -43,7 +43,7 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     model.bindBufferData();
 
-    Image img("assets/textures/uvtemplate.bmp", IMGTYPE::BMP);
+    Image img("assets/textures/test3colour.bmp", IMGTYPE::BMP);
     Image img2("assets/textures/test3colour.bmp", IMGTYPE::BMP);
     img.loadImage();
 
@@ -58,21 +58,18 @@ int main()
         lastTime = currentTime;
 
         if(glfwGetKey(window.getWindowID(), GLFW_KEY_SPACE)) {
-//            camera.screenToWorld(window.getWindowID());
+            camera.zoomDifference(deltaTime * 10.f);
         }
 
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+
+        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         simpleShader.use();
-
-
-        GLenum error = glGetError();
-        if(error != GL_NO_ERROR) {
-            std::cerr << error << std::endl;
-            break;
-        }
+        glm::mat4 modelMat = glm::mat4(1.f);
+        camera.loadMVP(MatrixID, modelMat);
 
         glBindVertexArray(vao);
         model.drawModel();

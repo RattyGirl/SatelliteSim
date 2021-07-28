@@ -19,6 +19,13 @@ F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/src/CMakeFiles/inst
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/src/CMakeFiles/edit_cache.dir
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/src/CMakeFiles/list_install_components.dir
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/src/CMakeFiles/install/strip.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/docs.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/install/local.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/install.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/edit_cache.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/rebuild_cache.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/list_install_components.dir
+F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glfw/docs/CMakeFiles/install/strip.dir
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm/CMakeFiles/install/local.dir
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm/CMakeFiles/install.dir
 F:/Programming/Cpp/SatelliteSimulator/cmake-build-debug/glm/CMakeFiles/edit_cache.dir

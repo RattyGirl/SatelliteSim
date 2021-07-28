@@ -96,19 +96,40 @@ clean: glm/clean
 
 # Recursive "all" directory target.
 glfw/all: glfw/src/all
+glfw/all: glfw/docs/all
 
 .PHONY : glfw/all
 
 # Recursive "preinstall" directory target.
 glfw/preinstall: glfw/src/preinstall
+glfw/preinstall: glfw/docs/preinstall
 
 .PHONY : glfw/preinstall
 
 # Recursive "clean" directory target.
 glfw/clean: glfw/CMakeFiles/uninstall.dir/clean
 glfw/clean: glfw/src/clean
+glfw/clean: glfw/docs/clean
 
 .PHONY : glfw/clean
+
+#=============================================================================
+# Directory level rules for directory glfw/docs
+
+# Recursive "all" directory target.
+glfw/docs/all: glfw/docs/CMakeFiles/docs.dir/all
+
+.PHONY : glfw/docs/all
+
+# Recursive "preinstall" directory target.
+glfw/docs/preinstall:
+
+.PHONY : glfw/docs/preinstall
+
+# Recursive "clean" directory target.
+glfw/docs/clean: glfw/docs/CMakeFiles/docs.dir/clean
+
+.PHONY : glfw/docs/clean
 
 #=============================================================================
 # Directory level rules for directory glfw/src
@@ -171,12 +192,12 @@ glm/glm/clean:
 CMakeFiles/SatelliteSim.dir/all: glfw/src/CMakeFiles/glfw.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SatelliteSim.dir\build.make CMakeFiles/SatelliteSim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target SatelliteSim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target SatelliteSim"
 .PHONY : CMakeFiles/SatelliteSim.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SatelliteSim.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles 26
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/SatelliteSim.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/SatelliteSim.dir/rule
@@ -244,6 +265,33 @@ glfw: glfw/src/CMakeFiles/glfw.dir/rule
 glfw/src/CMakeFiles/glfw.dir/clean:
 	$(MAKE) $(MAKESILENT) -f glfw\src\CMakeFiles\glfw.dir\build.make glfw/src/CMakeFiles/glfw.dir/clean
 .PHONY : glfw/src/CMakeFiles/glfw.dir/clean
+
+#=============================================================================
+# Target rules for target glfw/docs/CMakeFiles/docs.dir
+
+# All Build rule for target.
+glfw/docs/CMakeFiles/docs.dir/all:
+	$(MAKE) $(MAKESILENT) -f glfw\docs\CMakeFiles\docs.dir\build.make glfw/docs/CMakeFiles/docs.dir/depend
+	$(MAKE) $(MAKESILENT) -f glfw\docs\CMakeFiles\docs.dir\build.make glfw/docs/CMakeFiles/docs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles --progress-num=10 "Built target docs"
+.PHONY : glfw/docs/CMakeFiles/docs.dir/all
+
+# Build rule for subdir invocation for target.
+glfw/docs/CMakeFiles/docs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles 1
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 glfw/docs/CMakeFiles/docs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start F:\Programming\Cpp\SatelliteSimulator\cmake-build-debug\CMakeFiles 0
+.PHONY : glfw/docs/CMakeFiles/docs.dir/rule
+
+# Convenience name for target.
+docs: glfw/docs/CMakeFiles/docs.dir/rule
+
+.PHONY : docs
+
+# clean rule for target.
+glfw/docs/CMakeFiles/docs.dir/clean:
+	$(MAKE) $(MAKESILENT) -f glfw\docs\CMakeFiles\docs.dir\build.make glfw/docs/CMakeFiles/docs.dir/clean
+.PHONY : glfw/docs/CMakeFiles/docs.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
