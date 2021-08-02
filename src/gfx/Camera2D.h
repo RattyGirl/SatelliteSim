@@ -9,6 +9,7 @@
 #include <glm/vec2.hpp>
 #include "Model.h"
 #include "Shader.h"
+#include "Window.h"
 
 class Camera2D {
 private:
@@ -25,6 +26,11 @@ public:
     void loadMVP(GLuint matrixID, glm::mat4 model);
     void zoomDifference(float z);
     void translateCamera();
+    float getRelativeXFromPixel(double xPos);
+    float getRelativeYFromPixel(double yPos);
+    glm::vec3 getWorldFromPixel(glm::vec3 screenPos);
+
+    void updateCameraPos(Window window, float deltaTime);
 };
 
 

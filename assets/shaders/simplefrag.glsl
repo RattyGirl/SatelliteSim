@@ -6,5 +6,8 @@ uniform sampler2D myTextureSampler;
 out vec3 color;
 
 void main(){
-    color = texture( myTextureSampler, uv ).rgb;
+    vec3 textureColor = texture( myTextureSampler, uv ).rgb;
+    if (textureColor.rgb == vec3(1.0, 0.0, 0.99607843))
+    discard;
+    color = textureColor;
 }

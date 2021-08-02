@@ -16,7 +16,7 @@ include_directories(glad/include)
 add_subdirectory(glm)
 include_directories(glm)
 
-file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/gfx/*.cpp glad/src/glad.c)
+file(GLOB_RECURSE SOURCE_FILES src/*.cpp src/gfx/*.cpp src/game/*.cpp src/util/*.cpp glad/src/glad.c)
 
 add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 
