@@ -23,15 +23,11 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 # Linking GLFW and OGL
 target_link_libraries(${CMAKE_PROJECT_NAME} glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARY} glm::glm)
 
-add_custom_command(TARGET SatelliteSim PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/assets/ $<TARGET_FILE_DIR:SatelliteSim>)
-
-macro(print_all_variables)
-    message(STATUS "print_all_variables------------------------------------------{")
-    get_cmake_property(_variableNames VARIABLES)
-    foreach (_variableName ${_variableNames})
-        message(STATUS "${_variableName}=${${_variableName}}")
-    endforeach()
-    message(STATUS "print_all_variables------------------------------------------}")
-endmacro()
+set (ASSETSRC "${CMAKE_SOURCE_DIR}/assets")
+set (ASSETDEST "${CMAKE_CURRENT_BINARY_DIR}/assets")
+add_custom_command(
+        TARGET ${PROJECT_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E create_symlink ${ASSETSRC} ${ASSETDEST}
+        DEPENDS ${destination}
+        COMMENT "symbolic link resources folder from ${ASSETSRC} => ${ASSETDEST}"
+)

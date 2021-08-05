@@ -38,8 +38,8 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     assetManager.getModel("cube")->bindBufferData();
 
-    Image img("assets/textures/emptygreen.bmp", IMGTYPE::BMP);
-    img.loadImage();
+    assetManager.addImage("emptygreen", Image("assets/textures/emptygreen.bmp", IMGTYPE::BMP));
+    assetManager.getImage("emptygreen")->loadImage();
 
     Camera2D camera(SCR_WIDTH, SCR_HEIGHT);
 
@@ -63,11 +63,7 @@ int main()
             float yPosFloat = camera.getRelativeYFromPixel(ypos);
             glm::vec3 screenVec = glm::vec3(xPosFloat, yPosFloat, 1);
             glm::vec3 worldPos = camera.getWorldFromPixel(screenVec);
-            std::cout << "Screen Pos:" << screenVec[0] << ":" << screenVec[1] << std::endl;
-            std::cout << "World Pos:" << worldPos[0] << ":" << worldPos[1] << std::endl;
         }
-
-
 
 
         glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
@@ -76,20 +72,21 @@ int main()
         assetManager.getShader("simpleshader")->use();
         glBindVertexArray(vao);
 
-        glm::mat4 transMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(1.f, 0.0f, 0.0f));
-        glm::mat4 modelMat = transMatrix; //scales then rotates then translates
-        camera.loadMVP(MatrixID, modelMat);
-        assetManager.getModel("cube")->drawModel();
-
-        transMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.f, 0.0f, 0.0f));
-        modelMat = transMatrix; //scales then rotates then translates
-        camera.loadMVP(MatrixID, modelMat);
-        assetManager.getModel("cube")->drawModel();
-
-        transMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.5f,0.245f, 0.0f));
-        modelMat = transMatrix; //scales then rotates then translates
-        camera.loadMVP(MatrixID, modelMat);
-        assetManager.getModel("cube")->drawModel();
+        for (int y = 0; y < 10; ++y) {
+            for (int x = 0; x < 10; ++x) {
+                float yCoord = 0.245f * y;
+                float xCoord;
+                if(y % 2) {
+                    xCoord = 0.5 + 1.f * x;
+                } else {
+                    xCoord = 1.f * x;
+                }
+                glm::mat4 transMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(xCoord, yCoord, 0.0f));
+                glm::mat4 modelMat = transMatrix; //scales then rotates then translates
+                camera.loadMVP(MatrixID, modelMat);
+                assetManager.getModel("cube")->drawModel();
+            }
+        }
 
         // Swap buffers
         glfwSwapBuffers(window.getWindowID());

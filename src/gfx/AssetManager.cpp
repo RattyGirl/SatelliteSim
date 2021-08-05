@@ -33,6 +33,21 @@ void AssetManager::addShader(std::string name, Shader shader) {
     shaders.push_back(ShaderPair(name, shader));
 }
 
+void AssetManager::addImage(std::string name, Image image) {
+//    does it contain
+    bool found = false;
+    for(int i = 0; i < images.size(); ++i) {
+        if(images.at(i).first == name) {
+            found = true;
+            break;
+        }
+    }
+    if(found)
+        return;
+
+    images.push_back(ImagePair(name, image));
+}
+
 Model *AssetManager::getModel(std::string name) {
     for (int i = 0; i < models.size(); ++i) {
         if(models.at(i).first == name) {
@@ -46,6 +61,15 @@ Shader *AssetManager::getShader(std::string name) {
     for (int i = 0; i < shaders.size(); ++i) {
         if(shaders.at(i).first == name) {
             return &shaders.at(i).second;
+        }
+    }
+    return nullptr;
+}
+
+Image *AssetManager::getImage(std::string name) {
+    for (int i = 0; i < images.size(); ++i) {
+        if(images.at(i).first == name) {
+            return &images.at(i).second;
         }
     }
     return nullptr;
