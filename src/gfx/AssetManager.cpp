@@ -3,11 +3,11 @@
 //
 
 #include "AssetManager.h"
-void AssetManager::addModel(std::string name, Model model) {
+void AssetManager::addModel(const std::string& name, const Model& model) {
 //    does it contain
     bool found = false;
-    for(int i = 0; i < models.size(); ++i) {
-        if(models.at(i).first == name) {
+    for(auto &loopModel : models) {
+        if(loopModel.first == name) {
             found = true;
             break;
         }
@@ -15,14 +15,14 @@ void AssetManager::addModel(std::string name, Model model) {
     if(found)
         return;
 
-    models.push_back(ModelPair(name, model));
+    models.emplace_back(name, model);
 }
 
-void AssetManager::addShader(std::string name, Shader shader) {
+void AssetManager::addShader(const std::string& name, Shader shader) {
 //    does it contain
     bool found = false;
-    for(int i = 0; i < shaders.size(); ++i) {
-        if(shaders.at(i).first == name) {
+    for(auto &loopShader : shaders) {
+        if(loopShader.first == name) {
             found = true;
             break;
         }
@@ -30,14 +30,14 @@ void AssetManager::addShader(std::string name, Shader shader) {
     if(found)
         return;
 
-    shaders.push_back(ShaderPair(name, shader));
+    shaders.emplace_back(name, shader);
 }
 
-void AssetManager::addImage(std::string name, Image image) {
+void AssetManager::addImage(const std::string& name, Image image) {
 //    does it contain
     bool found = false;
-    for(int i = 0; i < images.size(); ++i) {
-        if(images.at(i).first == name) {
+    for(auto &loopImage : images) {
+        if(loopImage.first == name) {
             found = true;
             break;
         }
@@ -45,31 +45,31 @@ void AssetManager::addImage(std::string name, Image image) {
     if(found)
         return;
 
-    images.push_back(ImagePair(name, image));
+    images.emplace_back(name, image);
 }
 
-Model *AssetManager::getModel(std::string name) {
-    for (int i = 0; i < models.size(); ++i) {
-        if(models.at(i).first == name) {
-            return &models.at(i).second;
+Model *AssetManager::getModel(const std::string& name) {
+    for (auto &model : models) {
+        if(model.first == name) {
+            return &model.second;
         }
     }
     return nullptr;
 }
 
-Shader *AssetManager::getShader(std::string name) {
-    for (int i = 0; i < shaders.size(); ++i) {
-        if(shaders.at(i).first == name) {
-            return &shaders.at(i).second;
+Shader *AssetManager::getShader(const std::string& name) {
+    for (auto &shader : shaders) {
+        if(shader.first == name) {
+            return &shader.second;
         }
     }
     return nullptr;
 }
 
-Image *AssetManager::getImage(std::string name) {
-    for (int i = 0; i < images.size(); ++i) {
-        if(images.at(i).first == name) {
-            return &images.at(i).second;
+Image *AssetManager::getImage(const std::string& name) {
+    for (auto &image : images) {
+        if(image.first == name) {
+            return &image.second;
         }
     }
     return nullptr;

@@ -99,10 +99,10 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
     this->programID = Shader::loadShaders(vertexPath, fragmentPath);
 }
 
-GLuint Shader::getUniformLocation(const char *location) {
+GLuint Shader::getUniformLocation(const char *location) const {
     return glGetUniformLocation(this->programID, location);
 }
 
-void Shader::use() {
+void Shader::use() const {
     glUseProgram(this->programID);
 }

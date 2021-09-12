@@ -21,13 +21,13 @@ private:
     std::vector<ShaderPair> shaders;
     std::vector<ImagePair> images;
 public:
-    void addModel(std::string name, Model model);
-    void addShader(std::string name, Shader shader);
-    void addImage(std::string name, Image shader);
+    void addModel(const std::string& name, const Model& model);
+    void addShader(const std::string& name, Shader shader);
+    void addImage(const std::string& name, Image shader);
 
-    Model* getModel(std::string name);
-    Shader* getShader(std::string name);
-    Image* getImage(std::string name);
+    Model* getModel(const std::string& name);
+    Shader* getShader(const std::string& name);
+    Image* getImage(const std::string& name);
 };
 
 

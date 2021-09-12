@@ -9,6 +9,8 @@
 const unsigned int SCR_WIDTH = 1280;
 const unsigned int SCR_HEIGHT = 720;
 
+AssetManager assetManager;
+
 int main()
 {
     Window::setupGLFW();
@@ -19,12 +21,13 @@ int main()
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
+    glEnable(GL_MULTISAMPLE);
 
     GLuint vertexArrayID;
     glGenVertexArrays(1, &vertexArrayID);
     glBindVertexArray(vertexArrayID);
 
-    AssetManager assetManager;
+
     assetManager.addShader("simpleshader", Shader("simplevert.glsl", "simplefrag.glsl"));
     GLuint MatrixID = assetManager.getShader("simpleshader")->getUniformLocation("MVP");
 
@@ -72,14 +75,15 @@ int main()
         assetManager.getShader("simpleshader")->use();
         glBindVertexArray(vao);
 
+//        draw world
         for (int y = 0; y < 10; ++y) {
             for (int x = 0; x < 10; ++x) {
-                float yCoord = 0.245f * y;
+                float yCoord = 0.245f * (float)y;
                 float xCoord;
                 if(y % 2) {
-                    xCoord = 0.5 + 1.f * x;
+                    xCoord = 0.5f + 1.f * (float)x;
                 } else {
-                    xCoord = 1.f * x;
+                    xCoord = 1.f * (float)x;
                 }
                 glm::mat4 transMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(xCoord, yCoord, 0.0f));
                 glm::mat4 modelMat = transMatrix; //scales then rotates then translates

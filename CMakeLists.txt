@@ -3,7 +3,7 @@ project(SatelliteSim)
 
 find_package(OpenGL REQUIRED)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 # Including GLFW
 add_subdirectory(glfw)
@@ -22,12 +22,3 @@ add_executable(${CMAKE_PROJECT_NAME} ${SOURCE_FILES})
 
 # Linking GLFW and OGL
 target_link_libraries(${CMAKE_PROJECT_NAME} glfw ${GLFW_LIBRARIES} ${OPENGL_LIBRARY} glm::glm)
-
-set (ASSETSRC "${CMAKE_SOURCE_DIR}/assets")
-set (ASSETDEST "${CMAKE_CURRENT_BINARY_DIR}/assets")
-add_custom_command(
-        TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E create_symlink ${ASSETSRC} ${ASSETDEST}
-        DEPENDS ${destination}
-        COMMENT "symbolic link resources folder from ${ASSETSRC} => ${ASSETDEST}"
-)

@@ -17,8 +17,8 @@ private:
     GLuint programID;
 public:
     Shader(const char* vertexPath, const char* fragmentPath);
-    GLuint getUniformLocation(const char* location);
-    void use();
+    GLuint getUniformLocation(const char* location) const;
+    void use() const;
 
     static GLuint loadShaders(const char* vertex_file_path, const char* fragment_file_path);
 };

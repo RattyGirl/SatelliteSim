@@ -58,3 +58,8 @@ void Camera2D::updateCameraPos(Window window, float deltaTime) {
     }
 
 }
+
+void Camera2D::translateCamera() {
+//    TODO
+
+}
