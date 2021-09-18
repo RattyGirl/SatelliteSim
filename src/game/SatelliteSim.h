@@ -5,11 +5,18 @@
 #ifndef SATELLITESIM_SATELLITESIM_H
 #define SATELLITESIM_SATELLITESIM_H
 
+#include "../gfx/Camera2D.h"
+#include "../gfx/AssetManager.h"
+
 namespace SatelliteSim {
     class SatelliteSim {
     private:
+        AssetManager* assetManager;
     public:
-        void render();
+        SatelliteSim(AssetManager* assetManager) {
+            this->assetManager = assetManager;
+        }
+        void render(Camera2D* camera);
     };
 }
 

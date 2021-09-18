@@ -99,8 +99,13 @@ Shader::Shader(const char *vertexPath, const char *fragmentPath) {
     this->programID = Shader::loadShaders(vertexPath, fragmentPath);
 }
 
-GLuint Shader::getUniformLocation(const char *location) const {
-    return glGetUniformLocation(this->programID, location);
+GLuint Shader::getUniformLocation(std::string location) {
+    if(knownUniformLocations.count(location)) {
+        return knownUniformLocations.at(location);
+    } else {
+        knownUniformLocations[location] = glGetUniformLocation(this->programID, location.c_str());
+        return knownUniformLocations.at(location);
+    }
 }
 
 void Shader::use() const {

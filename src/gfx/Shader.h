@@ -11,13 +11,15 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <map>
 
 class Shader {
 private:
     GLuint programID;
+    std::map<std::string, GLuint> knownUniformLocations;
 public:
     Shader(const char* vertexPath, const char* fragmentPath);
-    GLuint getUniformLocation(const char* location) const;
+    GLuint getUniformLocation(std::string location);
     void use() const;
 
     static GLuint loadShaders(const char* vertex_file_path, const char* fragment_file_path);
