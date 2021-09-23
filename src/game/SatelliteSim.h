@@ -12,10 +12,14 @@ namespace SatelliteSim {
     class SatelliteSim {
     private:
         AssetManager* assetManager;
+        Camera2D* camera;
     public:
-        SatelliteSim(AssetManager* assetManager) {
+        SatelliteSim(AssetManager* assetManager, Camera2D* camera) {
             this->assetManager = assetManager;
+            this->camera = camera;
         }
+        void loadAssets();
+        void update(float dt);
         void render(Camera2D* camera);
     };
 }

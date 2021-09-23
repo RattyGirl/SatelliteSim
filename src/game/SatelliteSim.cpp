@@ -24,4 +24,18 @@ namespace SatelliteSim {
             }
         }
     }
+
+
+    void SatelliteSim::loadAssets() {
+        assetManager->addModel("cube", Model("assets/models/cube.obj"));
+
+        assetManager->addShader("simpleshader", Shader("simplevert.glsl", "simplefrag.glsl"));
+
+        assetManager->addImage("emptygreen", Image("assets/textures/emptygreen.bmp", IMGTYPE::BMP));
+
+    }
+
+    void SatelliteSim::update(float dt) {
+        camera->updateCameraPos(dt);
+    }
 }

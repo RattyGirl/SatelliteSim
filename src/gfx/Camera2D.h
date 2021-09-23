@@ -20,8 +20,10 @@ private:
     glm::mat4 proj;
 
     glm::mat4 lastmvp;
+
+    Window* window;
 public:
-    Camera2D(unsigned int scr_width, unsigned int scr_height);
+    Camera2D(unsigned int scr_width, unsigned int scr_height, Window *pWindow);
 
     void loadMVP(GLuint matrixID, glm::mat4 model);
     void zoomDifference(float z);
@@ -30,7 +32,8 @@ public:
     float getRelativeYFromPixel(double yPos);
     glm::vec3 getWorldFromPixel(glm::vec3 screenPos);
 
-    void updateCameraPos(Window window, float deltaTime);
+    void updateCameraPos(float deltaTime);
+    void windowSizeCallback(GLFWwindow* window, int width, int height);
 };
 
 

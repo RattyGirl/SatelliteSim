@@ -3,7 +3,7 @@ project(SatelliteSim)
 
 find_package(OpenGL REQUIRED)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
 # Including GLFW
 add_subdirectory(glfw)
