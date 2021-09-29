@@ -56,15 +56,19 @@ void Camera2D::updateCameraPos(float deltaTime) {
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_W)) {
         this->view = glm::translate(view, glm::vec3(0.f, -1.f * deltaTime, 0.f));
+        position.y -= 1.f * deltaTime;
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_A)) {
         this->view = glm::translate(view, glm::vec3(1.f * deltaTime, 0.f, 0.f));
+        position.x += 1.f * deltaTime;
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_S)) {
         this->view = glm::translate(view, glm::vec3(0.f, 1.f * deltaTime, 0.f));
+        position.y += 1.f * deltaTime;
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_D)) {
         this->view = glm::translate(view, glm::vec3(-1.f * deltaTime, 0.f, 0.f));
+        position.x -= 1.f * deltaTime;
     }
 
     if(glfwGetMouseButton(window->getWindowID(), GLFW_MOUSE_BUTTON_LEFT)) {
@@ -90,4 +94,8 @@ void Camera2D::windowSizeCallback(GLFWwindow* window, int width, int height) {
     proj = glm::ortho(0.f, (float) scr_width, 0.f, (float) scr_height, 0.0f, 2.0f);
 
     glViewport(0, 0, scr_width, scr_height);
+}
+
+const glm::vec2 &Camera2D::getPosition() const {
+    return position;
 }

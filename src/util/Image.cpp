@@ -109,10 +109,10 @@ void Image::parseBMP(const char *path) {
 
     //Everything is in memory now, the file can be closed
     fclose(file);
+    glGenTextures(1, &textureID);
 }
 
 void Image::loadImage() {
-    glGenTextures(1, &textureID);
     // "Bind" the newly created texture : all future texture functions will modify this texture
     glBindTexture(GL_TEXTURE_2D, textureID);
 

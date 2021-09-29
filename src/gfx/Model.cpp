@@ -81,7 +81,7 @@ Model::Model(const char *location) {
     }
     fclose(file);
 
-    for(int i = 0; i < vertices.size(); ++i) {
+    for(long long unsigned int i = 0; i < vertices.size(); ++i) {
         combined.push_back(vertices[i].x);
         combined.push_back(vertices[i].y);
         combined.push_back(vertices[i].z);

@@ -34,6 +34,7 @@ public:
 
     void updateCameraPos(float deltaTime);
     void windowSizeCallback(GLFWwindow* window, int width, int height);
+    const glm::vec2 &getPosition() const;
 };
 
 

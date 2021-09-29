@@ -41,10 +41,6 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
 
-
-    assetManager.getModel("cube")->bindBufferData();
-    assetManager.getImage("emptygreen")->loadImage();
-
     double lastTime = glfwGetTime();
 
     while (!glfwWindowShouldClose(window.getWindowID()))
@@ -56,10 +52,9 @@ int main()
 
         gameObject.update(deltaTime);
 
-        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        assetManager.getShader("simpleshader")->use();
         glBindVertexArray(vao);
         gameObject.render(&camera);
 
