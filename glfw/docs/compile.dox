@@ -45,11 +45,19 @@ Linux and FreeBSD you will need a few extra packages.
 To compile GLFW for X11, you need to have the X11 development packages
 installed.  They are not needed to build or run programs that use GLFW.
 
-On Debian and derivates like Ubuntu the `xorg-dev` meta-package pulls in the
-development packages for all of X11.
+On Debian and derivates like Ubuntu and Linux Mint the `xorg-dev` meta-package
+pulls in the development packages for all of X11.
 
 @code{.sh}
 sudo apt install xorg-dev
+@endcode
+
+On Fedora and derivatives like Red Hat the X11 extension packages
+`libXcursor-devel`, `libXi-devel`, `libXinerama-devel` and `libXrandr-devel`
+required by GLFW pull in all its other dependencies.
+
+@code{.sh}
+sudo dnf install libXcursor-devel libXi-devel libXinerama-devel libXrandr-devel
 @endcode
 
 On FreeBSD the X11 headers are installed along the end-user X11 packages, so if
@@ -72,18 +80,25 @@ To compile GLFW for Wayland, you need to have the Wayland and xkbcommon
 development packages installed.  They are not needed to build or run programs
 that use GLFW.
 
-On Debian and derivates like Ubuntu you will need the `libwayland-dev`,
-`libxkbcommon-dev` and `wayland-protocols` packages.
+On Debian and derivates like Ubuntu and Linux Mint you will need the `libwayland-dev`,
+`libxkbcommon-dev`, `wayland-protocols` and `extra-cmake-modules` packages.
 
 @code{.sh}
-sudo apt install libwayland-dev libxkbcommon-dev wayland-protocols
+sudo apt install libwayland-dev libxkbcommon-dev wayland-protocols extra-cmake-modules
 @endcode
 
-On FreeBSD you will need the `wayland`, `libxkbcommon` and `wayland-protocols`
-packages.
+On Fedora and derivatives like Red Hat you will need the `wayland-devel`,
+`libxkbcommon-devel`, `wayland-protocols-devel` and `extra-cmake-modules` packages.
 
 @code{.sh}
-pkg install wayland libxkbcommon wayland-protocols
+sudo dnf install wayland-devel libxkbcommon-devel wayland-protocols-devel extra-cmake-modules
+@endcode
+
+On FreeBSD you will need the `wayland`, `libxkbcommon`, `wayland-protocols` and
+`kf5-extra-cmake-modules` packages.
+
+@code{.sh}
+pkg install wayland libxkbcommon wayland-protocols kf5-extra-cmake-modules
 @endcode
 
 Once you have the required depdendencies, move on to @ref compile_generate.
@@ -230,13 +245,11 @@ default, producing a static GLFW library.
 
 @anchor GLFW_BUILD_EXAMPLES
 __GLFW_BUILD_EXAMPLES__ determines whether the GLFW examples are built
-along with the library.  This is enabled by default unless GLFW is being built
-as a sub-project of a larger CMake project.
+along with the library.
 
 @anchor GLFW_BUILD_TESTS
 __GLFW_BUILD_TESTS__ determines whether the GLFW test programs are
-built along with the library.  This is enabled by default unless GLFW is being
-built as a sub-project of a larger CMake project.
+built along with the library.
 
 @anchor GLFW_BUILD_DOCS
 __GLFW_BUILD_DOCS__ determines whether the GLFW documentation is built along
