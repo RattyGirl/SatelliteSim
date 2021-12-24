@@ -8,7 +8,7 @@
 #include <glad/glad.h>
 #include <iostream>
 
-enum IMGTYPE {BMP};
+enum IMGTYPE {BMP, PNG};
 class Image {
 private:
     int width,height;
@@ -16,11 +16,13 @@ private:
     IMGTYPE imgtype;
 
     // Actual RGB data
-    unsigned char * data;
+    unsigned char* data;
 
     void parseBMP(const char *path);
 public:
     Image(const char* path, IMGTYPE filetype);
+    void cleanup();
+
     void loadImage();
     static GLuint loadBMP(const char* path);
 };

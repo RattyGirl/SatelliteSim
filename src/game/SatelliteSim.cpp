@@ -46,6 +46,8 @@ namespace SatelliteSim {
         assetManager->addImage("emptygreen", Image("assets/textures/emptygreen.bmp", IMGTYPE::BMP));
         assetManager->addImage("stars", Image("assets/textures/stars.bmp", IMGTYPE::BMP));
 
+//        Image image("", IMGTYPE::PNG);
+
     }
 
     void SatelliteSim::update(float dt) {
