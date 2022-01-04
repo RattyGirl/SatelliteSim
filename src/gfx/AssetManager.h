@@ -28,6 +28,8 @@ public:
     Model* getModel(const std::string& name);
     Shader* getShader(const std::string& name);
     Image* getImage(const std::string& name);
+
+    void cleanImages();
 };
 
 

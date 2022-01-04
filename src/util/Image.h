@@ -8,7 +8,7 @@
 #include <glad/glad.h>
 #include <iostream>
 
-enum IMGTYPE {BMP, PNG};
+enum IMGTYPE {BMP};
 class Image {
 private:
     int width,height;
@@ -24,7 +24,6 @@ public:
     void cleanup();
 
     void loadImage();
-    static GLuint loadBMP(const char* path);
 };
 
 

@@ -63,6 +63,8 @@ int main()
         glfwPollEvents();
     }
 
+    assetManager.cleanImages();
+
     glfwTerminate();
     return 0;
 }

@@ -13,6 +13,8 @@ namespace SatelliteSim {
     private:
         AssetManager* assetManager;
         Camera2D* camera;
+
+
     public:
         SatelliteSim(AssetManager* assetManager, Camera2D* camera) {
             this->assetManager = assetManager;

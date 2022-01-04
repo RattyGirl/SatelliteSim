@@ -27,7 +27,7 @@ public:
 
     void loadMVP(GLuint matrixID, glm::mat4 model);
     void zoomDifference(float z);
-    void translateCamera();
+    void translateCamera(float dx, float dy);
     float getRelativeXFromPixel(double xPos);
     float getRelativeYFromPixel(double yPos);
     glm::vec3 getWorldFromPixel(glm::vec3 screenPos);

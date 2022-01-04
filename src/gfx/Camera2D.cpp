@@ -55,20 +55,16 @@ void Camera2D::updateCameraPos(float deltaTime) {
         this->zoomDifference(deltaTime * 100.f);
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_W)) {
-        this->view = glm::translate(view, glm::vec3(0.f, -1.f * deltaTime, 0.f));
-        position.y -= 1.f * deltaTime;
+        this->translateCamera(0.f, -1.f * deltaTime);
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_A)) {
-        this->view = glm::translate(view, glm::vec3(1.f * deltaTime, 0.f, 0.f));
-        position.x += 1.f * deltaTime;
+        this->translateCamera(1.f * deltaTime, 0.f);
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_S)) {
-        this->view = glm::translate(view, glm::vec3(0.f, 1.f * deltaTime, 0.f));
-        position.y += 1.f * deltaTime;
+        this->translateCamera(0.f, 1.f * deltaTime);
     }
     if(glfwGetKey(window->getWindowID(), GLFW_KEY_D)) {
-        this->view = glm::translate(view, glm::vec3(-1.f * deltaTime, 0.f, 0.f));
-        position.x -= 1.f * deltaTime;
+        this->translateCamera(-1.f * deltaTime, 0.f);
     }
 
     if(glfwGetMouseButton(window->getWindowID(), GLFW_MOUSE_BUTTON_LEFT)) {
@@ -82,8 +78,10 @@ void Camera2D::updateCameraPos(float deltaTime) {
 
 }
 
-void Camera2D::translateCamera() {
-//    TODO
+void Camera2D::translateCamera(float dx, float dy) {
+    this->view = glm::translate(view, glm::vec3(dx, dy, 0.f));
+    position.x += dx;
+    position.y += dy;
 }
 
 void Camera2D::windowSizeCallback(GLFWwindow* window, int width, int height) {

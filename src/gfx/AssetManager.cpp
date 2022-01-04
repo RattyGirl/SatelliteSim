@@ -74,3 +74,11 @@ Image *AssetManager::getImage(const std::string& name) {
     }
     return nullptr;
 }
+
+
+void AssetManager::cleanImages() {
+    for (auto &image : images) {
+        image.second.cleanup();
+    }
+    images.clear();
+}
