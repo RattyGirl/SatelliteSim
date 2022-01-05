@@ -5,7 +5,7 @@
 #include "SatelliteSim.h"
 
 namespace SatelliteSim {
-    void SatelliteSim::render(Camera2D* camera) {
+    void SatelliteSim::render() {
         assetManager->getModel("cube")->bindBufferData();
 //        draw background
         assetManager->getImage("stars")->loadImage();

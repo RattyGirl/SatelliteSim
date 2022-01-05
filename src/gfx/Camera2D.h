@@ -13,15 +13,18 @@
 
 class Camera2D {
 private:
-    glm::vec2 position;
-    int scr_width, scr_height;
-    float zoom = 2000;
-    glm::mat4 view;
-    glm::mat4 proj;
+    glm::vec2 m_position;
+    int m_scr_width, m_scr_height;
+    float m_zoom = 2000;
+    glm::mat4 m_view;
+    glm::mat4 m_proj;
 
-    glm::mat4 lastmvp;
+    glm::mat4 m_lastmvp;
 
-    Window* window;
+    bool m_mouseHeld = false;
+    glm::vec2 m_lastpos;
+
+    Window* m_window;
 public:
     Camera2D(unsigned int scr_width, unsigned int scr_height, Window *pWindow);
 

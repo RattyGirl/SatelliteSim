@@ -1787,8 +1787,8 @@ From `GLM_GTC_matrix_transform` extension: `<glm/gtc/matrix_transform.hpp>`
 [***gluProject:***](http://www.opengl.org/sdk/docs/man2/xhtml/gluProject.xml)
 
 ```cpp
-glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
-glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const& viewport);
+glm::vec3 project(glm::vec3 const& obj, glm::mat4 const& model, glm::mat4 const& m_proj, glm::ivec4 const& viewport);
+glm::dvec3 project(glm::dvec3 const& obj, glm::dmat4 const& model, glm::dmat4 const& m_proj, glm::ivec4 const& viewport);
 ```
 
 From `GLM_GTC_matrix_transform` extension: `<glm/gtc/matrix_transform.hpp>`
@@ -1796,8 +1796,8 @@ From `GLM_GTC_matrix_transform` extension: `<glm/gtc/matrix_transform.hpp>`
 [***gluUnProject:***](https://www.opengl.org/sdk/docs/man2/xhtml/gluUnProject.xml)
 
 ```cpp
-glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& proj, glm::ivec4 const& viewport);
-glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 const& proj, glm::ivec4 const& viewport);
+glm::vec3 unProject(glm::vec3 const& win, glm::mat4 const& model, glm::mat4 const& m_proj, glm::ivec4 const& viewport);
+glm::dvec3 unProject(glm::dvec3 const& win, glm::dmat4 const& model, glm::dmat4 const& m_proj, glm::ivec4 const& viewport);
 ```
 
 From `GLM_GTC_matrix_transform` extension: `<glm/gtc/matrix_transform.hpp>`

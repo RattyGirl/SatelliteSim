@@ -22,7 +22,7 @@ namespace SatelliteSim {
         }
         void loadAssets();
         void update(float dt);
-        void render(Camera2D* camera);
+        void render();
     };
 }
 
